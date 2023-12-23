@@ -22,7 +22,7 @@ module "vpc" {
   }
 }
 
-# SG
+# Sescurity Group
 module "sg" {
   source = "terraform-aws-modules/security-group/aws"
 
@@ -61,7 +61,7 @@ module "sg" {
   }
 }
 
-# EC2
+# Jenkins EC2 Instance
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
