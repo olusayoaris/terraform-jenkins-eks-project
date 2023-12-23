@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jendarey-vote-result-one
+  name: cookie
+  labels:
+    app: cookie-webpage-deployment
+    tier: front-end
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: jendarey-vote-result-one
-      tier: frontend
+      app: cookie-webpage-deployment
   template:
     metadata:
       labels:
-        app: jendarey-vote-result-one
-        tier: frontend
+        app: cookie-webpage-deployment
+        tier: front-end
     spec:
       containers:
-      - name: jendarey-vote-result-one-container
-        image: jendaredocker/jendarey-vote-result-one:latest
-        ports:
-        - containerPort: 8080
+        - name: cookie-webpage-deploy-container
+          image: jendaredocker/jendarey-cookie-company-webpage-main:latest
+          ports:
+            - containerPort: 8080
