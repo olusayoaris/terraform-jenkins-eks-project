@@ -61,15 +61,13 @@ pipeline {
             }
         }
 
-        stage("Deploying to our cookies-web-app") {
+        stage("Deploying our cookies-web-app") {
             steps {
                 script {
                     dir('kubernetes') {
                         sh "aws eks --region us-east-1 update-kubeconfig --name my-eks-cluster"
-                        sh "kubectl apply -f mongodb-manifest.yaml"
-                        sh "kubectl apply -f mongodb-service-manifest.yaml"
-                        sh "kubectl apply -f votingapp-manifest.yaml"
-                        sh "kubectl apply -f votingapp-service-manifest.yaml"
+                        sh "kubectl apply -f cookiesweb-manifest.yaml"
+                        sh "kubectl apply -f cookiesweb-service-manifest.yaml"
                     }
                 }
             }
