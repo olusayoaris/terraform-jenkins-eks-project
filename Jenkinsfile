@@ -40,7 +40,7 @@ pipeline {
             }
         }
 
-        stage("Previewing the Infra using Terraform") {
+        stage("Planing the Infrastructure using Terraform") {
             steps{
                 script{
                     dir('terraform'){
@@ -51,7 +51,7 @@ pipeline {
             }
         }
 
-        stage("Creating a my-eks-cluster") {
+        stage("Building the my-eks-cluster") {
             steps {
                 script {
                     dir('terraform') {
@@ -61,7 +61,7 @@ pipeline {
             }
         }
 
-        stage("Deploying to Votingapp EKS Cluster") {
+        stage("Deploying to our cookies-web-app") {
             steps {
                 script {
                     dir('kubernetes') {
